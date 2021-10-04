@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { MicroFrontend } from "./MicroFrontend";
 
 import "./App.css";
@@ -12,8 +12,11 @@ export const App = ({ history }) => {
     alert(age);
   };
 
+  const [counter, setCounter] = useState(1)
+
   const handler = {
     name: "From host1",
+    counter,
     submit: handleSubmit,
   };
 
@@ -29,6 +32,7 @@ export const App = ({ history }) => {
   return (
     <div className="container">
       <div>
+         <button onClick={()=>setCounter(counter+1)} >{counter}</button>
         <h3 className="container">Micro frontend</h3>
         <MicroFrontend
           {...{
@@ -39,13 +43,13 @@ export const App = ({ history }) => {
           }}
         />
       </div>
-      <div>
+      {/* <div>
         <h3 className="container">Iframe</h3>
         <iframe
           src={`${formHost}?isIframe&name=${handler.name}`}
           title="iframe-form"
         ></iframe>
-      </div>
+      </div> */}
     </div>
   );
 };

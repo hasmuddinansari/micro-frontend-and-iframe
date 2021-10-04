@@ -42,6 +42,7 @@ export const Form = ({ handler, history }) => {
     <div className="container mt-5">
       <div className="row">
         <h4>Hello {name}</h4>
+        <strong>{handler.counter}</strong>
         <form onSubmit={submit}>
           <label htmlFor="age">Age</label> <br />
           <input ref={ref} placeholder="enter your age" name="age" />
