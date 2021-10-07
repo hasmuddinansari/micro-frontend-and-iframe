@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 
 import "./App.css";
+import { getQueryParams } from "./utils";
 
 export const Form = ({ handler, history }) => {
   const ref = useRef(null);
@@ -28,21 +29,22 @@ export const Form = ({ handler, history }) => {
   const getNameAndHandler = () => {
     const search = history.location.search ?? "";
     const isIframe = search.includes("isIframe");
-    const [_, name] = search.split("=");
-
     return {
       submit: handleSumbit,
-      name: isIframe ? name.replaceAll("%20", " ") : handler.name,
+      name: isIframe ? getQueryParams(history.location.search, "name"): handler.name,
+      counter: isIframe ? getQueryParams(history.location.search, "counter") : handler.counter,
     };
   };
 
-  const { name, submit } = getNameAndHandler();
+  const { name, counter, submit } = getNameAndHandler();
+
+  
 
   return (
     <div className="container mt-5">
       <div className="row">
         <h4>Hello {name}</h4>
-        <strong>{handler.counter}</strong>
+        <strong>{counter}</strong>
         <form onSubmit={submit}>
           <label htmlFor="age">Age</label> <br />
           <input ref={ref} placeholder="enter your age" name="age" />

@@ -15,3 +15,15 @@ code {
 .container {
   margin-top: 10px;
 }
+
+.light-blue{
+  background-color: aquamarine;
+}
+
+.light-green{
+  background-color: lightgreen;
+}
+
+h4{
+  color: red;
+}

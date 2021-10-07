@@ -31,7 +31,7 @@ export const App = ({ history }) => {
 
   return (
     <div className="container">
-      <div>
+      <div className="light-green" >
          <button onClick={()=>setCounter(counter+1)} >{counter}</button>
         <h3 className="container">Micro frontend</h3>
         <MicroFrontend
@@ -43,10 +43,10 @@ export const App = ({ history }) => {
           }}
         />
       </div>
-      {/* <div>
+      {/* <div className="light-blue" >
         <h3 className="container">Iframe</h3>
         <iframe
-          src={`${formHost}?isIframe&name=${handler.name}`}
+          src={`${formHost}?isIframe&name=${handler.name}&counter=${handler.counter}`}
           title="iframe-form"
         ></iframe>
       </div> */}
